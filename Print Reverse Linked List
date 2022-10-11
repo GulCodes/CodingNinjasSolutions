@@ -1,0 +1,71 @@
+
+/*
+class LinkedListNode<T> {
+	public T data;
+	public LinkedListNode<T> next;
+
+	public LinkedListNode(T data) {
+		this.setData(data);
+		this.next = null;
+	}
+
+	public T getData() {
+		return data;
+	}
+
+	public void setData(T data) {
+		this.data = data;
+	}
+
+}
+* */
+import java.util.*;
+public class Solution {
+	public static void printReverse(LinkedListNode<Integer> root) {
+        /* Recursively
+         if(root==null) return;
+         if(root.next==null) {
+             System.out.print(root.data); return;
+         }
+         printReverse(root.next);
+         System.out.print(" " + root.data);   */
+        
+        /* By Reversing the Array 
+        if(root==null) return;
+        if( root.next==null)
+        { System.out.print(root.data); return; }
+        LinkedListNode<Integer> newRoot = reverse(root);
+        while(newRoot!=null){
+            System.out.print(newRoot.data+" ");
+            newRoot=newRoot.next;
+        }  }
+    
+    
+  static LinkedListNode<Integer> reverse(LinkedListNode<Integer> root){
+        LinkedListNode<Integer> curr= root;
+        LinkedListNode<Integer> prev=null;
+        while(curr!=null){
+            LinkedListNode<Integer> next= curr.next;
+            curr.next=prev;
+            prev = curr;
+            curr = next;   
+        }
+        return prev;  
+        
+        
+    } */
+        /* Using extra space (arraylist) */
+        List<Integer> li = new ArrayList<>();
+        LinkedListNode<Integer> curr= root;
+        int count=0;
+        while(curr!=null) {
+        li.add(curr.data); count++;
+        curr=curr.next; }
+        
+        while(count>0){
+            System.out.print(li.get(count-1)+ " ");
+            count--;
+        }
+
+}
+}
