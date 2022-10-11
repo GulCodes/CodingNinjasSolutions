@@ -22,18 +22,23 @@ class LinkedListNode<T> {
 import java.util.*;
 public class Solution {
 	public static void printReverse(LinkedListNode<Integer> root) {
-        /* Recursively
+        /*Recursively, O(N) time and O(N) stack space 
+        
          if(root==null) return;
          if(root.next==null) {
              System.out.print(root.data); return;
          }
          printReverse(root.next);
-         System.out.print(" " + root.data);   */
+         System.out.print(" " + root.data);   
         
-        /* By Reversing the Array 
+        */
+        
+        
+        /* By Reversing the Array - O(N) time and no space. But not allowed here cause we can't modify pointers of LL
         if(root==null) return;
         if( root.next==null)
         { System.out.print(root.data); return; }
+        
         LinkedListNode<Integer> newRoot = reverse(root);
         while(newRoot!=null){
             System.out.print(newRoot.data+" ");
@@ -41,7 +46,7 @@ public class Solution {
         }  }
     
     
-  static LinkedListNode<Integer> reverse(LinkedListNode<Integer> root){
+  static LinkedListNode<Integer> reverse(LinkedListNode<Integer> root){  // O(N) time
         LinkedListNode<Integer> curr= root;
         LinkedListNode<Integer> prev=null;
         while(curr!=null){
@@ -54,7 +59,7 @@ public class Solution {
         
         
     } */
-        /* Using extra space (arraylist) */
+        /* Using extra space (arraylist)  (O(N) time and O(N) space) 
         List<Integer> li = new ArrayList<>();
         LinkedListNode<Integer> curr= root;
         int count=0;
@@ -66,6 +71,6 @@ public class Solution {
             System.out.print(li.get(count-1)+ " ");
             count--;
         }
-
+*/
 }
 }
