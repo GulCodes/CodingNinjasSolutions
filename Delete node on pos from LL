@@ -1,0 +1,49 @@
+/*
+
+    Following is the Node class already written for the Linked List
+
+    class LinkedListNode<T> {
+        T data;
+        LinkedListNode<T> next;
+    
+        public LinkedListNode(T data) {
+            this.data = data;
+        }
+    }
+
+*/
+
+public class Solution {
+
+
+	public static LinkedListNode<Integer> deleteNodeRec(LinkedListNode<Integer> head, int pos) {
+    	/* time n space of O(N)
+        if(head==null) return null;
+        if(head.next==null&&pos==0) return null; //Base cases done
+        if(pos==0) return head.next;
+        else {
+            LinkedListNode<Integer> dh = deleteNodeRec(head.next,pos-1);
+            head.next=dh;
+            return head;
+        }  */
+        
+        /* iteratively, only time of O(N) */
+        if(head==null) return null;
+        if(head.next==null&&pos==0) return null;
+        if(pos==0) return head.next;
+        
+        LinkedListNode<Integer> curr= head;
+        
+        while(pos>=1 && curr.next!=null){
+            if(pos==1) {
+            curr.next= curr.next.next;
+                return head;
+            }
+            else {
+            curr=curr.next; pos--; }
+        }
+        return head;
+        
+	}
+
+}
